@@ -10,16 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ On récupère le dépôt
       - uses: actions/checkout@v3
 
-      # 2️⃣ On copie le dossier docs dans un dossier temporaire
+      - name: Check files
+        run: |
+          ls -la
+          ls -la docs
+
       - name: Copy docs to output
         run: |
           mkdir output
           cp -R docs/* output/
 
-      # 3️⃣ On publie le dossier output sur la branche gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
