@@ -1,9 +1,13 @@
+body {
+    background: url(images/Logo.jpg);
+    background-size: cover;
+}
+
 #logo {
-    width: 200px;
-    height: 150px;
+    width: 1000px;
+    height: auto;
     display: block;
-    margin: 0 auto;
-    border: 2px solid black;
+    animation-fill-mode: forwards;
 }
 
 #logo {
@@ -14,11 +18,11 @@
 @keyframes slidein {
   from {
     margin-left: 100%;
-    width: 300%;
+    width: 1000px;
   }
 
   to {
-    margin-left: 0%;
-    width: 100%;
+    margin-left: 50%;
+    width: 500px;
   }
 }
