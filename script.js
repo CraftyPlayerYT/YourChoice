@@ -1,5 +1,7 @@
+// 1. CONFIGURATION (Les adresses et variables globales)
 const SERVER_URL = 'https://dailytask-backend.onrender.com';
 
+// 2. FONCTIONS DE MAINTENANCE (Vérification du serveur)
 async function verifierServeur() {
   try {
     const response = await fetch(SERVER_URL);
@@ -10,5 +12,28 @@ async function verifierServeur() {
   }
 }
 
-// On lance la vérification au démarrage
-verifierServeur();
+// 3. FONCTIONS D'AUTHENTIFICATION (Le code Google)
+function handleCredentialResponse(response) {
+    const token = response.credential;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    
+    console.log("Utilisateur connecté :", payload.name);
+    // Plus tard, on ajoutera ici l'envoi vers SERVER_URL
+}
+
+// 4. DÉMARRAGE (Ce qui s'exécute dès que la page est prête)
+$(document).ready(function() {
+    // On vérifie le serveur
+    verifierServeur();
+
+    // On initialise Google
+    google.accounts.id.initialize({
+        client_id: "898605285847-vblmutqem2vpcca9f4fmis0ne42nn4vp.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+    });
+
+    google.accounts.id.renderButton(
+        $("#buttonDiv")[0],
+        { theme: "outline", size: "large" }
+    );
+});
