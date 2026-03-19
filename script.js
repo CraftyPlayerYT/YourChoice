@@ -19,6 +19,13 @@ function handleCredentialResponse(response) {
     
     console.log("Utilisateur connecté :", payload.name);
     // Plus tard, on ajoutera ici l'envoi vers SERVER_URL
+    fetch(SERVER_URL + '/verifier-token', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'  // l'étiquette
+    },
+    body: JSON.stringify({ token: token })
+})
 }
 
 // 4. DÉMARRAGE (Ce qui s'exécute dès que la page est prête)
