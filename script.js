@@ -13,16 +13,18 @@ async function verifierServeur() {
 }
 
 // 3. FONCTIONS D'AUTHENTIFICATION (Le code Google)
-function handleCredentialResponse(response) {
+async function handleCredentialResponse(response) {
     const token = response.credential;
     // Plus tard, on ajoutera ici l'envoi vers SERVER_URL
-    fetch(SERVER_URL + '/verifier-token', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'  // l'étiquette
-    },
-    body: JSON.stringify({ token: token })
-})
+    const paquet = await fetch(SERVER_URL + '/verifier-token', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'  // l'étiquette
+      },
+      body: JSON.stringify({ token: token })
+    })
+  const userInfo = await paquet.json();
+  console.log(userInfo);
 }
 
 // 4. DÉMARRAGE (Ce qui s'exécute dès que la page est prête)
