@@ -12,6 +12,34 @@ async function verifierServeur() {
   }
 }
 
+function creercookie(nom, valeur, datedexpiration) {
+    let date = new Date();
+    
+    if (typeof datedexpiration === "number") {
+        date.setDate(date.getDate() + datedexpiration);
+    } else if (datedexpiration === "aucune") {
+        date.setFullYear(date.getFullYear() + 100);
+    } else {
+        console.error("Erreur dans la création d'un cookie : date invalide");
+        return;
+    }
+
+    document.cookie = nom + "=" + valeur + "; expires=" + date.toUTCString() + "; path=/";
+}
+
+function lirecookie(nom) {
+    let cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+        let [cle, valeur] = cookie.split("=");
+        if (cle === nom) return valeur;
+    }
+    return null;
+}
+
+function supprimercookie(nom) {
+    creercookie(nom, "", -10);
+}
+
 // 3. FONCTIONS D'AUTHENTIFICATION (Le code Google)
 async function handleCredentialResponse(response) {
     const token = response.credential;
