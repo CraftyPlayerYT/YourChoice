@@ -1,0 +1,45 @@
+// 1. CONFIGURATION (Les adresses et variables globales)
+const SERVER_URL = 'https://yourchoice-backend-bjvf.onrender.com';
+
+// 2. FONCTIONS DE MAINTENANCE (Vérification du serveur)
+async function verifierServeur() {
+  try {
+    const response = await fetch(SERVER_URL);
+    const texte = await response.text();
+    console.log("Statut du Backend :", texte);
+  } catch (error) {
+    console.error("Impossible de joindre le serveur :", error);
+  }
+}
+
+// 3. FONCTIONS D'AUTHENTIFICATION (Le code Google)
+async function handleCredentialResponse(response) {
+    const token = response.credential;
+    // Plus tard, on ajoutera ici l'envoi vers SERVER_URL
+    const paquet = await fetch(SERVER_URL + '/verifier-token', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'  // l'étiquette
+      },
+      body: JSON.stringify({ token: token })
+    })
+  const userInfo = await paquet.json();
+  console.log(userInfo);
+}
+
+// 4. DÉMARRAGE (Ce qui s'exécute dès que la page est prête)
+$(document).ready(function() {
+    // On vérifie le serveur
+    verifierServeur();
+
+    // On initialise Google
+    google.accounts.id.initialize({
+        client_id: "898605285847-vblmutqem2vpcca9f4fmis0ne42nn4vp.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+    });
+
+    google.accounts.id.renderButton(
+        $("#buttonDiv")[0],
+        { theme: "outline", size: "large" }
+    );
+});
