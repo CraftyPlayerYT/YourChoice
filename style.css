@@ -5,6 +5,6 @@
 }
 
 #buttonDiv {
-    width: 48px;  /* largeur fixe pour un bouton icône Google */
-    height: 48px; /* hauteur fixe */
+    width: 200px;  /* largeur fixe pour un bouton icône Google */
+    height: 50px; /* hauteur fixe */
 }
