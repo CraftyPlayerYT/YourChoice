@@ -68,7 +68,7 @@ function IntercepterErreurXRSpatialTracking() {
 $(document).ready(function() {
     // On vérifie le serveur
     verifierServeur();
-
+    IntercepterErreurXRSpatialTracking();
     // On initialise Google
     google.accounts.id.initialize({
         client_id: "898605285847-vblmutqem2vpcca9f4fmis0ne42nn4vp.apps.googleusercontent.com",
