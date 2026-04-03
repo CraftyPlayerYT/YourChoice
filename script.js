@@ -1,5 +1,5 @@
 // 1. CONFIGURATION (Les adresses et variables globales)
-const SERVER_URL = 'https://yourchoice-backend-bjvf.onrender.com';
+const SERVER_URL = 'https://your-choice-backend.vercel.app/';
 
 // 2. FONCTIONS DE MAINTENANCE (Vérification du serveur)
 async function verifierServeur() {
