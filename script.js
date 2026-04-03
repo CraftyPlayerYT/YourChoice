@@ -56,7 +56,7 @@ async function handleCredentialResponse(response) {
 }
 
 function IntercepterErreurXRSpatialTracking() {
-    windows.addEventListener('error', function(event) {
+    window.addEventListener('error', function(event) {
         if (event.message.includes('xr-spatial-tracking')) {
             console.log("⚠️ XR-tracking ignoré: votre navigateur ne l'utilise pas, veuillez ignorer cette erreur si elle ne vous conserne pas.");
             event.preventDefault();
@@ -68,7 +68,7 @@ function IntercepterErreurXRSpatialTracking() {
 $(document).ready(function() {
     // On vérifie le serveur
     verifierServeur();
-
+    IntercepterErreurXRSpatialTracking();
     // On initialise Google
     google.accounts.id.initialize({
         client_id: "898605285847-vblmutqem2vpcca9f4fmis0ne42nn4vp.apps.googleusercontent.com",
