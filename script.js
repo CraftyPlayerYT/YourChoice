@@ -55,6 +55,15 @@ async function handleCredentialResponse(response) {
   console.log(userInfo);
 }
 
+function IntercepterErreurXRSpatialTracking() {
+    windows.addEventListener('error', function(event) {
+        if (event.message.includes('xr-spatial-tracking')) {
+            console.log("⚠️ XR-tracking ignoré: votre navigateur ne l'utilise pas, veuillez ignorer cette erreur si elle ne vous conserne pas.");
+            event.preventDefault();
+        }
+    })
+}
+
 // 4. DÉMARRAGE (Ce qui s'exécute dès que la page est prête)
 $(document).ready(function() {
     // On vérifie le serveur
