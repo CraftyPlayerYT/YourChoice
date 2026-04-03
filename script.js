@@ -56,7 +56,7 @@ async function handleCredentialResponse(response) {
 }
 
 function IntercepterErreurXRSpatialTracking() {
-    windows.addEventListener('error', function(event) {
+    window.addEventListener('error', function(event) {
         if (event.message.includes('xr-spatial-tracking')) {
             console.log("⚠️ XR-tracking ignoré: votre navigateur ne l'utilise pas, veuillez ignorer cette erreur si elle ne vous conserne pas.");
             event.preventDefault();
