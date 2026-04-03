@@ -77,6 +77,6 @@ $(document).ready(function() {
 
     google.accounts.id.renderButton(
         $("#buttonDiv")[0],
-        { theme: "outline", size: "large" }
+        { type: "standard", theme: "outline", size: "medium" }
     );
 });
