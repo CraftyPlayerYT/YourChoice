@@ -61,7 +61,7 @@ function EstDejaVenuSurLeSite () {
     return null;
   }
   else(){
-    window.href.location = "verification/capcha";
+    window.href.location == "verification/capcha";
   }
 }
 
@@ -69,6 +69,8 @@ function EstDejaVenuSurLeSite () {
 $(document).ready(function() {
     // On vérifie le serveur
     verifierServeur();
+    // On vérifie que l'utlisateur est déjà venu sur la page web
+    EstDejaVenuSurLeSite ()
     // On initialise Google
     google.accounts.id.initialize({
         client_id: "445190739638-9eruderb7lulctvr5cdrv6njhb19prkr.apps.googleusercontent.com",
