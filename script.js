@@ -60,7 +60,7 @@ function EstDejaVenuSurLeSite () {
   if(a=true){
     return null;
   }
-  else(){
+  else{
     window.href.location == "verification/capcha";
   }
 }
