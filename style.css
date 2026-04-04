@@ -3,3 +3,8 @@
   background-color: #00d4a2;
   color: black;
 }
+
+#buttonDiv {
+    width: 200px;  /* largeur fixe pour un bouton icône Google */
+    height: 50px; /* hauteur fixe */
+}

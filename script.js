@@ -55,28 +55,20 @@ async function handleCredentialResponse(response) {
   console.log(userInfo);
 }
 
-function IntercepterErreurXRSpatialTracking() {
-    window.addEventListener('error', function(event) {
-        if (event.message.includes('xr-spatial-tracking')) {
-            console.log("⚠️ XR-tracking ignoré: votre navigateur ne l'utilise pas, veuillez ignorer cette erreur si elle ne vous conserne pas.");
-            event.preventDefault();
-        }
-    })
-}
+
 
 // 4. DÉMARRAGE (Ce qui s'exécute dès que la page est prête)
 $(document).ready(function() {
     // On vérifie le serveur
     verifierServeur();
-    IntercepterErreurXRSpatialTracking();
     // On initialise Google
     google.accounts.id.initialize({
-        client_id: "898605285847-vblmutqem2vpcca9f4fmis0ne42nn4vp.apps.googleusercontent.com",
+        client_id: "445190739638-9eruderb7lulctvr5cdrv6njhb19prkr.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
 
     google.accounts.id.renderButton(
         $("#buttonDiv")[0],
-        { theme: "outline", size: "large" }
+        { type: "standard", theme: "outline", size: "medium" }
     );
 });
