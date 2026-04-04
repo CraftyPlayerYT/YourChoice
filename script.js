@@ -55,7 +55,15 @@ async function handleCredentialResponse(response) {
   console.log(userInfo);
 }
 
-
+function EstDejaVenuSurLeSite () {
+  a = lirecookie("EstDejaVenuSurLeSite")
+  if(a=true){
+    return null;
+  }
+  else(){
+    window.href.location("verification/capcha");
+  }
+}
 
 // 4. DÉMARRAGE (Ce qui s'exécute dès que la page est prête)
 $(document).ready(function() {
