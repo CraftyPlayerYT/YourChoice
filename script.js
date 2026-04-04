@@ -63,7 +63,7 @@ $(document).ready(function() {
     verifierServeur();
     // On initialise Google
     google.accounts.id.initialize({
-        client_id: "898605285847-vblmutqem2vpcca9f4fmis0ne42nn4vp.apps.googleusercontent.com",
+        client_id: "445190739638-9eruderb7lulctvr5cdrv6njhb19prkr.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
 
