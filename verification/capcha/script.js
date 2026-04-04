@@ -5,7 +5,7 @@ BoutonRafraichir.style.display = "none";
 function TestReussi(token) {
   console.log("✅ Utilisateur confirmé !");
   creercookie("EstDejaVenuSurLeSite", "true", 999);
-  window.href.location = "../";
+  window.location.href = "../";
 };
 
 function TestRate(){
