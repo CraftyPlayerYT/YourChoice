@@ -56,11 +56,12 @@ async function handleCredentialResponse(response) {
 }
 
 function EstDejaVenuSurLeSite () {
-  a = lirecookie("EstDejaVenuSurLeSite")
-  if(a===true){
-    return null;
-  }
-  else{
+  let a = lirecookie("EstDejaVenuSurLeSite");
+  
+  if (a === "true") { // ✅ On vérifie le texte "true" avec des guillemets
+    console.log("Cookie détecté, accès autorisé !");
+    return; 
+  } else {
     window.location.href = "verification/capcha";
   }
 }
