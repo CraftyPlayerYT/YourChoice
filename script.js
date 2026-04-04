@@ -57,7 +57,7 @@ async function handleCredentialResponse(response) {
 
 function EstDejaVenuSurLeSite () {
   a = lirecookie("EstDejaVenuSurLeSite")
-  if(a=true){
+  if(a==true){
     return null;
   }
   else{
