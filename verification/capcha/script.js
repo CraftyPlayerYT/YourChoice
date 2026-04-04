@@ -1,6 +1,8 @@
 let MessageTestRate = document.getElementById("MessageTestRate");
+let MessageTestExpire = document.getElementById("MessageTestExpire");
 let BoutonRafraichir = document.getElementById("BoutonRafraichir");
 MessageTestRate.style.display = "none";
+MessageTestExpire.style.display = "none";
 BoutonRafraichir.style.display = "none";
 function TestReussi(token) {
   console.log("✅ Utilisateur confirmé !");
@@ -17,6 +19,7 @@ function TestRate(){
 function TestExpire(){
   console.warn("Le test a expiré, veuillez rafraîchir la page.")
   BoutonRafraichir.style.display = "block";
+  MessageTestExpire.style.display = "block";
 }
 
 BoutonRafraichir.addEventListener("click", function() {
