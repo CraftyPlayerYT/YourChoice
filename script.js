@@ -61,7 +61,7 @@ function EstDejaVenuSurLeSite () {
     return null;
   }
   else{
-    window.href.location == "verification/capcha";
+    window.location.href = "verification/capcha";
   }
 }
 
