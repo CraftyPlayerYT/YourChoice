@@ -1,3 +1,5 @@
+
+
 async function verifierServeur() {
   try {
     const response = await fetch(SERVER_URL);

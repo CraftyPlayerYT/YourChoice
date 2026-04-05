@@ -1,3 +1,5 @@
+const SERVER_URL = 'https://your-choice-backend.vercel.app';
+
 async function verifierServeur() {
   try {
     const response = await fetch(SERVER_URL);
