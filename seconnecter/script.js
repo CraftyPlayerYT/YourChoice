@@ -20,7 +20,7 @@ $(document).ready(function(){
         callback: handleCredentialResponse
     });
     google.accounts.id.renderButton(
-        $("#buttonDiv")[0],
+        $("#SeConnecterAvecGoogle")[0],
         { type: "standard", theme: "outline", size: "medium" }
     );
 }
