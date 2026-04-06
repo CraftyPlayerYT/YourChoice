@@ -25,11 +25,10 @@ async function TestReussi(token) {
       body: JSON.stringify({ turnstileToken: 'token' })
     });
   const resultat = await paquetcloudflare.json();
-  console.log(resultat);
   if(resultat.success) {
     creercookie("aVerifieCloudflarePourCreationDeCompte", "true", 0.01389);
-  };
-};
+  }
+}
 
 async function handleCredentialResponse(response) {
     const token = response.credential;
