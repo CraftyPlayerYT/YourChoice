@@ -30,6 +30,20 @@ async function TestReussi(token) {
   }
 }
 
+async function handleCredentialResponse(response) {
+    const token = response.credential;
+    // Plus tard, on ajoutera ici l'envoi vers SERVER_URL
+    const paquet = await fetch(SERVER_URL + '/verifier-token', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'  // l'étiquette
+      },
+      body: JSON.stringify({ token: token })
+    })
+  const userInfo = await paquet.json();
+  console.log(userInfo);
+}
+
 $(document).ready(function(){
     verifierServeur();
     google.accounts.id.initialize({
