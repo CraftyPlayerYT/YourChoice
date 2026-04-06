@@ -37,3 +37,16 @@ function lirecookie(nom) {
 function supprimercookie(nom) {
     creercookie(nom, "", -10);
 }
+
+function EstDejaVenuSurLeSite () {
+  let a = lirecookie("EstDejaVenuSurLeSite");
+  
+  if (a === "true") { // ✅ On vérifie le texte "true" avec des guillemets
+    console.log("Cookie détecté, accès autorisé !");
+    return; 
+  } else {
+    window.location.href = "verification/capcha";
+  }
+}
+
+EstDejaVenuSurLeSite();
