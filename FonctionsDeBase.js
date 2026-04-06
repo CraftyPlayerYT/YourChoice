@@ -49,4 +49,12 @@ function EstDejaVenuSurLeSite () {
   }
 }
 
+function ElementId(id){
+  return document.getElementById(id);
+};
+
+function BoutonClique(id, fonction){
+  ElementId(id).addEventListener("click", fonction)
+};
+
 EstDejaVenuSurLeSite();

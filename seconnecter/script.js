@@ -1,15 +1,33 @@
-async function handleCredentialResponse(response) {
-    const token = response.credential;
-    // Plus tard, on ajoutera ici l'envoi vers SERVER_URL
-    const paquet = await fetch(SERVER_URL + '/verifier-token', {
+const emailutilisateur = document.getElementById("email");
+const motdepasse = document.getElementById("motdepasse");
+const emailDeRecuperation = document.getElementById("emailDeRecuperation");
+
+async function envoyerCompteAuServer(emaildelutilisateur, motdepasse, emailDeRecuperation) {
+    const paquetcreationdecompte = await fetch(SERVER_URL + '/verifierCreationDuCompte', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: emaildelutilisateur,
+            motdepasse: motdepasse,
+            emailDeRecuperation: emailDeRecuperation
+        })
+    })
+}
+
+async function TestReussi(token) {
+    const paquetcloudflare = await fetch(SERVER_URL + '/verifier-token-cloudflare', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'  // l'étiquette
       },
-      body: JSON.stringify({ token: token })
-    })
-  const userInfo = await paquet.json();
-  console.log(userInfo);
+      body: JSON.stringify({ turnstileToken: 'token' })
+    });
+  const resultat = await paquetcloudflare.json();
+  if(resultat.success) {
+    creercookie("aVerifieCloudflarePourCreationDeCompte", "true", 0.01389);
+  }
 }
 
 $(document).ready(function(){
@@ -22,5 +40,7 @@ $(document).ready(function(){
         $("#SeConnecterAvecGoogle")[0],
         { type: "standard", theme: "outline", size: "medium" }
     );
-}
-);
+    BoutonClique("creerCompte", function(){
+        envoyerCompteAuServer(emailutilisateur.value, motdepasse.value, emailDeRecuperation.value);
+    });
+});
