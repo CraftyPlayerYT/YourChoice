@@ -22,7 +22,7 @@ async function TestReussi(token) {
       headers: {
           'Content-Type': 'application/json'  // l'étiquette
       },
-      body: JSON.stringify({ turnstileToken: 'token' })
+      body: JSON.stringify({ turnstileToken: token })
     });
   const resultat = await paquetcloudflare.json();
   if(resultat.success) {
