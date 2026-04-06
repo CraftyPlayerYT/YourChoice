@@ -1,4 +1,3 @@
-verifierServeur();
 async function handleCredentialResponse(response) {
     const token = response.credential;
     // Plus tard, on ajoutera ici l'envoi vers SERVER_URL
