@@ -1,9 +1,8 @@
-const emailutilisateur = document.getElementById("email");
-const motdepasse = document.getElementById("motdepasse");
-const emailDeRecuperation = document.getElementById("emailDeRecuperation");
+const emailutilisateur = ElementId("email");
+const motdepasse = ElementId("motdepasse");
 
 async function envoyerCompteAuServer(emaildelutilisateur, motdepasse, emailDeRecuperation) {
-    const paquetcreationdecompte = await fetch(SERVER_URL + '/verifierCreationDuCompte', {
+    const paquetcreationdecompte = await fetch(SERVER_URL + '/verifierConnexionDuCompte', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -11,7 +10,6 @@ async function envoyerCompteAuServer(emaildelutilisateur, motdepasse, emailDeRec
         body: JSON.stringify({
             email: emaildelutilisateur,
             motdepasse: motdepasse,
-            emailDeRecuperation: emailDeRecuperation
         })
     })
 }
@@ -55,7 +53,7 @@ $(document).ready(function(){
         $("#SeConnecterAvecGoogle")[0],
         { type: "standard", theme: "outline", size: "medium" }
     );
-    BoutonClique("creerCompte", function(){
-        envoyerCompteAuServer(emailutilisateur.value, motdepasse.value, emailDeRecuperation.value);
+    BoutonClique("se_connecter", function(){
+        envoyerCompteAuServer(emailutilisateur.value, motdepasse.value);
     });
 });
